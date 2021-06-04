@@ -1253,6 +1253,8 @@ INSERT INTO [dbo].[Usuario]
            ( @dpi ,@name ,@app ,@dir,@tel,@corr,@pus,@us ,@cl )
 GO
 
+
+
 create proc updtus  @id int ,@dpi bigint,@name varchar(100),@app varchar(100),@dir varchar(200),@tel int ,@corr varchar(100),@pus varchar(50),@us varchar(50),@cl varchar(50)
 as
 UPDATE [dbo].[Usuario]
@@ -1268,11 +1270,13 @@ UPDATE [dbo].[Usuario]
  WHERE  ID_Usuario =  @id
 GO
 
+drop proc verusers 
+
 create proc verusers 
 as 
-
-
+select * from USUARIO; 
 go 
+
 create proc veruser @id int 
 as 
 select * from Usuario
@@ -1287,8 +1291,6 @@ where ID_Usuario = @id
 go 
 
 -- ver arbitros 
-drop proc arbitroocupado
-go
 create proc arbitroocupado @date date, @in time , @fin time 
 as
 select ar.Nombres +' ' + ar.Apellidos as Nombres  ,case when PR.Fecha is null then @date else PR.Fecha end as Fecha, case when pr.HoraInicio is null then '00:00:00' else pr.HoraInicio end as HoraInicio , case when pr.HoraFinal is null then '00:00:00' else pr.HoraFinal end as HoraFinal   from arbitro ar left join  arbitro_partido arp on ar.DPI= arp.DPI_Arbitro left join partido pr on arp.Id_Juego = pr.Id_Juego 
@@ -1420,3 +1422,8 @@ as
 	WHERE posicion_jugador.Id_Torneo = @Id_Torneo
 	and posicion_jugador.Id_Equipo = @Id_Equipo;
 
+	create proc js_obtenercanchas
+	AS BEGIN
+		SELECT * FROM CANCHA
+	END 
+	GO

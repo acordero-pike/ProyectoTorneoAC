@@ -286,6 +286,9 @@
     <Compile Include="View\ReporteCanchaDisponible.Designer.cs">
       <DependentUpon>ReporteCanchaDisponible.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\reportecanchasgit.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="View\ReporteEstadisticasDelEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -457,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ReporteCanchaDisponible.resx">
       <DependentUpon>ReporteCanchaDisponible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\reportecanchasgit.resx">
+      <DependentUpon>reportecanchasgit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ReporteEstadisticasDelEquipo.resx">
       <DependentUpon>ReporteEstadisticasDelEquipo.cs</DependentUpon>

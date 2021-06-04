@@ -11,7 +11,7 @@ namespace AdminitracionDeTorneosP.Database
 {
     public class UsuariosDB
     {
-        private string connectionString = "Server=DESKTOP-IFKEU1D\\SQLEXPRESS   ;Database=PROYECTO_TORNEOS;User Id=sa;Password=albin123;"; // Conectando a la base de datos SQL
+        private string connectionString = "Server=LAPTOP-0A8H41G8;Database=PROYECTO_TORNEOS; User Id = capacitation;Password=manager;"; // Conectando a la base de datos SQL
 
         public void Add(Ususario us)
         {
