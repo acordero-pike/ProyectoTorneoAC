@@ -88,6 +88,7 @@ namespace AdminitracionDeTorneosP.View
             this.ListUtilidades.RowHeadersWidth = 51;
             this.ListUtilidades.Size = new System.Drawing.Size(378, 156);
             this.ListUtilidades.TabIndex = 24;
+            this.ListUtilidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListUtilidades_CellContentClick);
             // 
             // btnBuscar
             // 
