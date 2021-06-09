@@ -67,7 +67,6 @@ namespace AdminitracionDeTorneosP.View
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.dataGridView1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReporteEquipo";
             this.Text = "ReporteEquipo";
             this.Load += new System.EventHandler(this.ReporteEquipo_Load);

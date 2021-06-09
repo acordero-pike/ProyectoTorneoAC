@@ -69,6 +69,7 @@ namespace AdminitracionDeTorneosP.View
             this.Controls.Add(this.listArbitros);
             this.Name = "listadoArbitrosGit";
             this.Text = "Listado Arbitros";
+            this.Load += new System.EventHandler(this.listadoArbitrosGit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listArbitros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
