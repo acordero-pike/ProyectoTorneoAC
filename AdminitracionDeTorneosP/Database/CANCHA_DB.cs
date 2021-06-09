@@ -13,7 +13,7 @@ namespace AdminitracionDeTorneosP.Database
   public  class CANCHA_DB
     {
 
-        private string connectionString = "Server=LAPTOP-0A8H41G8;Database=PROYECTO_TORNEOS; User Id = capacitation;Password=manager;"; // Conectando a la base de datos SQL
+        private string connectionstring = "Server=DESKTOP-IFKEU1D\\SQLEXPRESS   ;Database=PROYECTO_TORNEOS;User Id=sa;Password=albin123;"; // Conectando a la base de datos SQL
 
         SqlConnection conexion;
 
@@ -22,7 +22,7 @@ namespace AdminitracionDeTorneosP.Database
         {
             try
             {
-                conexion = new SqlConnection(connectionString);
+                conexion = new SqlConnection(connectionstring);
                 conexion.Open();
                 MessageBox.Show("Conexion realizada con exito");
             }
@@ -36,7 +36,7 @@ namespace AdminitracionDeTorneosP.Database
         {
             List<CANCHA> cliente = new List<CANCHA>();
             string query = "Exec BG_Muestra_Cancha";
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionstring))
             {
 
                 SqlCommand sql = new SqlCommand(query, conexion);
@@ -71,7 +71,7 @@ namespace AdminitracionDeTorneosP.Database
         {
             //$"insert into TIPO_PRODUCTO (NOMBRE)values(@nombre)"+
             string query = "exec BG_Insertar_Cancha @Nombre,@TipoCancha,@Disponibilidad";
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionstring))
             {
                 SqlCommand sql = new SqlCommand(query, conexion);
                 
@@ -103,7 +103,7 @@ namespace AdminitracionDeTorneosP.Database
         {
             CANCHA Canchaa = new CANCHA();
             string query = "select*from Cancha where NumeroCancha=@id";
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionstring))
             {
                 SqlCommand sql = new SqlCommand(query, conexion);
                 sql.Parameters.AddWithValue("@id", id);
@@ -132,7 +132,7 @@ namespace AdminitracionDeTorneosP.Database
             //update TIPO_PRODUCTO  set nombre =@nombre where TIPO_PRODUCTO=@id
 
             string query = "exec BG_Editar_Cancha @NumeroCancha,@Nombre,@TipoCancha,@Disponibilidad";
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionstring))
             {
                 SqlCommand command = new SqlCommand(query, conexion);
                 command.Parameters.AddWithValue("@NumeroCancha", agregarcancha.NumeroCancha);
@@ -160,7 +160,7 @@ namespace AdminitracionDeTorneosP.Database
         {
             // delete from cliente where TIPO_PRODUCTO=@id
             string query = "Exec eliminar_Cancha @NumeroCancha";
-            using (SqlConnection conexion = new SqlConnection(connectionString))
+            using (SqlConnection conexion = new SqlConnection(connectionstring))
             {
                 SqlCommand command = new SqlCommand(query, conexion);
                 command.Parameters.AddWithValue("@NumeroCancha", id);
