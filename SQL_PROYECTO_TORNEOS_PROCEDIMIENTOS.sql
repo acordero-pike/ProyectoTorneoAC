@@ -817,7 +817,7 @@ from partido p, cancha c
 where p.Id_Cancha = c.NumeroCancha and c.Disponibilidad = 'No Disponible';
 go
 
---equipo local reporte ´procedimientos jose curtidor
+--equipo local reporte Â´procedimientos jose curtidor
 create Function total_datos_parcialss(@id_torneo int)
 returns table
 as
@@ -1252,6 +1252,7 @@ INSERT INTO [dbo].[Usuario]
      VALUES
            ( @dpi ,@name ,@app ,@dir,@tel,@corr,@pus,@us ,@cl )
 GO
+select * from USUARIO
 
 
 
@@ -1274,8 +1275,13 @@ drop proc verusers
 
 create proc verusers 
 as 
+ 
 select * from USUARIO; 
 go 
+ 
+select * from USUARIO
+go
+ 
 
 create proc veruser @id int 
 as 
@@ -1291,6 +1297,9 @@ where ID_Usuario = @id
 go 
 
 -- ver arbitros 
+ 
+go
+ 
 create proc arbitroocupado @date date, @in time , @fin time 
 as
 select ar.Nombres +' ' + ar.Apellidos as Nombres  ,case when PR.Fecha is null then @date else PR.Fecha end as Fecha, case when pr.HoraInicio is null then '00:00:00' else pr.HoraInicio end as HoraInicio , case when pr.HoraFinal is null then '00:00:00' else pr.HoraFinal end as HoraFinal   from arbitro ar left join  arbitro_partido arp on ar.DPI= arp.DPI_Arbitro left join partido pr on arp.Id_Juego = pr.Id_Juego 
@@ -1305,7 +1314,7 @@ and pr.fecha=@date
 and pr.Horainicio =@in
 and pr.horafin = @fin
 
--- añadria arbitros 
+-- aÃ±adria arbitros 
 go
 create proc arbitroalq @arb bigint , @alq int , @time int , @pg float
 as
@@ -1422,8 +1431,16 @@ as
 	WHERE posicion_jugador.Id_Torneo = @Id_Torneo
 	and posicion_jugador.Id_Equipo = @Id_Equipo;
 
+ 
 	create proc js_obtenercanchas
 	AS BEGIN
 		SELECT * FROM CANCHA
 	END 
 	GO
+ 
+CREATE PROCEDURE SP_GET_ARBITROS_GIT
+AS BEGIN
+	SELECT * FROM arbitro;
+END
+GO
+ 

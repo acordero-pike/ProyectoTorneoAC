@@ -127,10 +127,17 @@ namespace AdminitracionDeTorneosP.View
             ds.Show();
         }
 
+ 
         private void button7_Click(object sender, EventArgs e)
         {
             reportecanchasgit reportecanchasgit = new reportecanchasgit();
             reportecanchasgit.Show();
+ 
+        private void reporteArbitrosGit_Click(object sender, EventArgs e)
+        {
+            listadoArbitrosGit listadoArbitrosGit = new listadoArbitrosGit();
+            listadoArbitrosGit.Show();
+ 
         }
     }
 }
