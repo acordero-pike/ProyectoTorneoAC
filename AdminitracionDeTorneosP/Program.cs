@@ -17,7 +17,7 @@ namespace AdminitracionDeTorneosP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReporteEquipo());
+            Application.Run(new Bienvenida());
         }
     }
 }

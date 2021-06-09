@@ -49,8 +49,8 @@ namespace AdminitracionDeTorneosP.View
             this.button7 = new System.Windows.Forms.Button();
  
 
+ 
             this.reporteArbitrosGit = new System.Windows.Forms.Button();
-
             this.button7 = new System.Windows.Forms.Button();
  
             this.SuspendLayout();
@@ -456,7 +456,6 @@ namespace AdminitracionDeTorneosP.View
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
  
-
             // reporteArbitrosGit
             // 
             this.reporteArbitrosGit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
@@ -474,7 +473,6 @@ namespace AdminitracionDeTorneosP.View
             this.reporteArbitrosGit.Text = "Reporte Arbitros Git";
             this.reporteArbitrosGit.UseVisualStyleBackColor = false;
             this.reporteArbitrosGit.Click += new System.EventHandler(this.reporteArbitrosGit_Click);
-
  
             // button7
             // 
@@ -486,6 +484,7 @@ namespace AdminitracionDeTorneosP.View
             this.button7.ForeColor = System.Drawing.Color.White;
             this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
  
+ 
             this.button7.Location = new System.Drawing.Point(224, 420);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
@@ -496,6 +495,9 @@ namespace AdminitracionDeTorneosP.View
             this.button7.Click += new System.EventHandler(this.button7_Click);
  
             this.button7.Location = new System.Drawing.Point(321, 11);
+ 
+            this.button7.Location = new System.Drawing.Point(219, 403);
+ 
             this.button7.Margin = new System.Windows.Forms.Padding(2);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(162, 65);
@@ -503,11 +505,15 @@ namespace AdminitracionDeTorneosP.View
             this.button7.Text = "Reporte de Equipo";
             this.button7.UseVisualStyleBackColor = false;
  
+ 
 
  
  
             this.button7.Click += new System.EventHandler(this.button7_Click);
  
+ 
+
+            this.button7.Click += new System.EventHandler(this.button7_Click);
  
             // 
             // Bienvenida
@@ -520,9 +526,7 @@ namespace AdminitracionDeTorneosP.View
             this.Controls.Add(this.button7);
  
             this.Controls.Add(this.reporteArbitrosGit);
-
             this.Controls.Add(this.button7);
-
  
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);

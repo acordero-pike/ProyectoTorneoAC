@@ -105,7 +105,7 @@ namespace AdminitracionDeTorneosP.View
         {
             Bitacora gan = new Bitacora();
             gan.Show();
-          
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -133,6 +133,7 @@ namespace AdminitracionDeTorneosP.View
             reportecanchasgit reportecanchasgit = new reportecanchasgit();
             reportecanchasgit.Show();
  }
+ 
         private void reporteArbitrosGit_Click(object sender, EventArgs e)
         {
             listadoArbitrosGit listadoArbitrosGit = new listadoArbitrosGit();
@@ -145,6 +146,15 @@ namespace AdminitracionDeTorneosP.View
             re.Show();
  
  
+ 
         }
+            private void button7_Click(object sender, EventArgs e)
+            {
+                ReporteEquipo re = new ReporteEquipo();
+                re.Show();
+
+            }
+
+       
     }
 }
