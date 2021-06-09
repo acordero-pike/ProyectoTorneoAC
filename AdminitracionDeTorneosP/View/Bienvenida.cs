@@ -139,6 +139,10 @@ namespace AdminitracionDeTorneosP.View
 
             }
 
-       
+        private void ReporteEquipo_Click(object sender, EventArgs e)
+        {
+            ReporteEquipo re = new ReporteEquipo();
+            re.Show();
+        }
     }
 }
