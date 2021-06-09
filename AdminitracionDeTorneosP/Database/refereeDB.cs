@@ -14,7 +14,7 @@ namespace AdminitracionDeTorneosP.Database
     {
         //ruta de conexion a base de datos 
         //ruta de conexion a base de datos 
-        private string connectionstring = "Server=DESKTOP-IFKEU1D\\SQLEXPRESS   ;Database=PROYECTO_TORNEOS;User Id=sa;Password=albin123;"; // Conectando a la base de datos SQL
+        private string connectionstring = "Server=DESKTOP-U4PFR0A;Database=PROYECTO_TORNEOS;User Id=Rogelio;Password=12345;"; // Conectando a la base de datos SQL
         //añadir objeto del tipo refereeModel a la base de datos 
         public void addReferee(refereeModel referee)
         {

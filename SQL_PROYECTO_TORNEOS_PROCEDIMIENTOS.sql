@@ -1252,6 +1252,7 @@ INSERT INTO [dbo].[Usuario]
      VALUES
            ( @dpi ,@name ,@app ,@dir,@tel,@corr,@pus,@us ,@cl )
 GO
+select * from USUARIO
 
 create proc updtus  @id int ,@dpi bigint,@name varchar(100),@app varchar(100),@dir varchar(200),@tel int ,@corr varchar(100),@pus varchar(50),@us varchar(50),@cl varchar(50)
 as
@@ -1270,9 +1271,9 @@ GO
 
 create proc verusers 
 as 
+select * from USUARIO
+go
 
-
-go 
 create proc veruser @id int 
 as 
 select * from Usuario
@@ -1287,7 +1288,6 @@ where ID_Usuario = @id
 go 
 
 -- ver arbitros 
-drop proc arbitroocupado
 go
 create proc arbitroocupado @date date, @in time , @fin time 
 as
@@ -1420,3 +1420,8 @@ as
 	WHERE posicion_jugador.Id_Torneo = @Id_Torneo
 	and posicion_jugador.Id_Equipo = @Id_Equipo;
 
+CREATE PROCEDURE SP_GET_ARBITROS_GIT
+AS BEGIN
+	SELECT * FROM arbitro;
+END
+GO
