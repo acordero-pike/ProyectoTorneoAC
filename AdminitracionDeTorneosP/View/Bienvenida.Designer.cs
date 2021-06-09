@@ -51,7 +51,11 @@ namespace AdminitracionDeTorneosP.View
 
  
             this.reporteArbitrosGit = new System.Windows.Forms.Button();
+ 
             this.button7 = new System.Windows.Forms.Button();
+ 
+ 
+            this.ReporteEquipo = new System.Windows.Forms.Button();
  
             this.SuspendLayout();
             // 
@@ -474,6 +478,7 @@ namespace AdminitracionDeTorneosP.View
             this.reporteArbitrosGit.UseVisualStyleBackColor = false;
             this.reporteArbitrosGit.Click += new System.EventHandler(this.reporteArbitrosGit_Click);
  
+ 
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
@@ -515,6 +520,21 @@ namespace AdminitracionDeTorneosP.View
 
             this.button7.Click += new System.EventHandler(this.button7_Click);
  
+ 
+            // 
+            // ReporteEquipo
+            // 
+            this.ReporteEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
+            this.ReporteEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReporteEquipo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ReporteEquipo.Location = new System.Drawing.Point(422, 408);
+            this.ReporteEquipo.Name = "ReporteEquipo";
+            this.ReporteEquipo.Size = new System.Drawing.Size(151, 70);
+            this.ReporteEquipo.TabIndex = 44;
+            this.ReporteEquipo.Text = "ReporteEquipo";
+            this.ReporteEquipo.UseVisualStyleBackColor = false;
+            this.ReporteEquipo.Click += new System.EventHandler(this.ReporteEquipo_Click);
+ 
             // 
             // Bienvenida
             // 
@@ -523,10 +543,15 @@ namespace AdminitracionDeTorneosP.View
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(782, 490);
  
+ 
             this.Controls.Add(this.button7);
  
             this.Controls.Add(this.reporteArbitrosGit);
             this.Controls.Add(this.button7);
+ 
+ 
+            this.Controls.Add(this.ReporteEquipo);
+            this.Controls.Add(this.reporteArbitrosGit);
  
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button3);
@@ -574,9 +599,13 @@ namespace AdminitracionDeTorneosP.View
  
 
         private System.Windows.Forms.Button reporteArbitrosGit;
+ 
 
         private System.Windows.Forms.Button button7;
 
+ 
+ 
+        private System.Windows.Forms.Button ReporteEquipo;
  
     }
 }
