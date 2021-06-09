@@ -352,6 +352,7 @@ namespace AdminitracionDeTorneosP.View
             this.button7.TabIndex = 43;
             this.button7.Text = "Reporte de Equipo";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Bienvenida
             // 
