@@ -11,24 +11,21 @@ using System.Windows.Forms;
 
 namespace AdminitracionDeTorneosP.View
 {
-    public partial class GananciasArbitrajealquiler : Form
+    public partial class ReporteEquipo : Form
     {
         private string connectionString = "Server=DESKTOP-IFKEU1D\\SQLEXPRESS   ;Database=PROYECTO_TORNEOS;User Id=sa;Password=albin123;"; // Conectando a la base de datos SQL
 
-        public GananciasArbitrajealquiler()
+        public ReporteEquipo()
         {
             InitializeComponent();
-            ListUtilidades.ReadOnly = true;
+            string quey = "exec BG_Mostrar_Equipos";
+            loadTableData(quey);
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void ReporteEquipo_Load(object sender, EventArgs e)
         {
-            string fechi = Fechini.Value.Year + "/" + Fechini.Value.Month + "/" + Fechini.Value.Day ;
-            string fech2 = Fechfn.Value.Year + "/" + Fechfn.Value.Month + "/" + Fechfn.Value.Day ;
-            string query = "exec ganacias_alquiler '"  + fechi + "' , '" + fech2 + "'";
-            loadTableData(query);
-        }
 
+        }
         private void loadTableData(string query)
         {
 
@@ -49,8 +46,8 @@ namespace AdminitracionDeTorneosP.View
                     sqll.Fill(data);
                     //Cargar datos en lista
 
-                    ListUtilidades.DataSource = data;
-                    if(ListUtilidades.Rows.Count==0)
+                    dataGridView1.DataSource = data;
+                    if (dataGridView1.Rows.Count == 0)
                     {
                         MessageBox.Show("Conexion Exitosa pero en las fechas Seleccionadas no se encuentran datos ");
                     }
@@ -64,26 +61,5 @@ namespace AdminitracionDeTorneosP.View
             }
         }
 
-        private void Fechini_ValueChanged(object sender, EventArgs e)
-        {
-            Fechfn.MinDate = Fechini.Value;
-        }
-
-        
-
-        private void Fechfn_ValueChanged_1(object sender, EventArgs e)
-        {
-            Fechini.MaxDate = Fechfn.Value;
-        }
-
-        private void GananciasArbitrajealquiler_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ListUtilidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
