@@ -17,7 +17,7 @@ namespace AdminitracionDeTorneosP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LogIn());
+            Application.Run(new Reporte_Jugadores1());
         }
     }
 }
