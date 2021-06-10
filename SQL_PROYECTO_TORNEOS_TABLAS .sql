@@ -307,3 +307,110 @@ ALTER TABLE registroDePartidosPorEquipoEnTorneo
 	REFERENCES equipo (Id_Equipo);
 go
 
+-- tabla accion usuario 
+ 
+
+CREATE TABLE [dbo].[accion_usuario](
+	[Id_accion] [int] IDENTITY(1,1) NOT NULL,
+	[Usuario] [int] NOT NULL,
+	[Accion] [varchar](50) NOT NULL,
+	[Fecha] [datetime] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_accion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[accion_usuario]  WITH CHECK ADD FOREIGN KEY([Usuario])
+REFERENCES [dbo].[Usuario] ([ID_Usuario])
+GO
+
+ALTER TABLE [dbo].[accion_usuario]  WITH CHECK ADD FOREIGN KEY([Usuario])
+REFERENCES [dbo].[Usuario] ([ID_Usuario])
+GO
+
+--tabla usuario 
+ 
+
+CREATE TABLE [dbo].[Usuario](
+	[ID_Usuario] [int] IDENTITY(1,1) NOT NULL,
+	[DPI] [bigint] NOT NULL,
+	[Nombres] [varchar](100) NOT NULL,
+	[Apellidos] [varchar](100) NOT NULL,
+	[Direccion] [varchar](200) NOT NULL,
+	[Telefono] [int] NOT NULL,
+	[Correo] [varchar](100) NOT NULL,
+	[Puesto] [varchar](50) NOT NULL,
+	[USUARIO] [varchar](50) NULL,
+	[CLAVE] [varchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID_Usuario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+-- alquiler cancha 
+ 
+
+CREATE TABLE [dbo].[Alquiler_Cancha](
+	[Id_Alquiler] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Cancha] [int] NOT NULL,
+	[fecha] [date] NOT NULL,
+	[Horainicio] [datetime] NOT NULL,
+	[horafin] [datetime] NULL,
+	[DPI] [bigint] NOT NULL,
+	[Nombres] [varchar](100) NOT NULL,
+	[Apellidos] [varchar](100) NOT NULL,
+	[Telefono] [int] NOT NULL,
+	[Correo] [varchar](100) NOT NULL,
+	[precio_alquiler] [float] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id_Alquiler] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Alquiler_Cancha]  WITH CHECK ADD FOREIGN KEY([ID_Cancha])
+REFERENCES [dbo].[cancha] ([NumeroCancha])
+GO
+
+ALTER TABLE [dbo].[Alquiler_Cancha]  WITH CHECK ADD FOREIGN KEY([ID_Cancha])
+REFERENCES [dbo].[cancha] ([NumeroCancha])
+GO
+
+
+-- arbitraje 
+ 
+CREATE TABLE [dbo].[arbitraje](
+	[id_arbitraje] [int] IDENTITY(1,1) NOT NULL,
+	[arbitro] [bigint] NOT NULL,
+	[alquiler] [int] NOT NULL,
+	[Tiempo] [int] NOT NULL,
+	[pago_por_hora] [float] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[arbitro] ASC,
+	[alquiler] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[arbitraje]  WITH CHECK ADD FOREIGN KEY([alquiler])
+REFERENCES [dbo].[Alquiler_Cancha] ([Id_Alquiler])
+GO
+
+ALTER TABLE [dbo].[arbitraje]  WITH CHECK ADD FOREIGN KEY([alquiler])
+REFERENCES [dbo].[Alquiler_Cancha] ([Id_Alquiler])
+GO
+
+ALTER TABLE [dbo].[arbitraje]  WITH CHECK ADD FOREIGN KEY([arbitro])
+REFERENCES [dbo].[arbitro] ([DPI])
+GO
+
+ALTER TABLE [dbo].[arbitraje]  WITH CHECK ADD FOREIGN KEY([arbitro])
+REFERENCES [dbo].[arbitro] ([DPI])
+GO
+

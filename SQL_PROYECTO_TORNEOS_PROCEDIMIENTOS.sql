@@ -1142,5 +1142,286 @@ GO
 
 
 
+----
+
+USE [PROYECTO_TORNEOS]
+GO
+--porcesos de Alquier
+create proc insalquiler @id int , @pr float , @fe datetime , @hinicio datetime , @ffinal datetime ,@dpi bigint,@name varchar(100),@app varchar(100),@tel int ,@corr varchar(100)
+as 
+INSERT INTO [dbo].[Alquiler_Cancha]
+           ([ID_Cancha]
+           ,[precio_alquiler]
+           ,[fecha]
+           ,[Horainicio]
+           ,[horafin]
+		   ,[DPI]
+           ,[Nombres]
+           ,[Apellidos]
+           ,[Telefono]
+           ,[Correo])
+     VALUES
+           (@id,@pr,@fe,@hinicio,@ffinal,@dpi,@name,@app,@tel,@corr)
+GO
+
+ 
+ create proc updtalqui @iden int, @id int , @pr float , @fe datetime , @hinicio datetime , @ffinal datetime ,@dpi bigint,@name varchar(100),@app varchar(100),@tel int ,@corr varchar(100)
+as 
+UPDATE [dbo].[Alquiler_Cancha]
+   SET [ID_Cancha] = @id	
+      ,[precio_alquiler] = @pr 
+      ,[fecha] =  @fe
+      ,[Horainicio] =  @hinicio
+      ,[horafin] =  @ffinal
+	    ,[DPI] = @dpi
+           ,[Nombres] = @name
+           ,[Apellidos] = @app
+           ,[Telefono] = @tel
+           ,[Correo]=@corr
+ WHERE  Id_Alquiler = @iden
+GO
+-- 
+create proc dtlalqui  @id int 
+as 
+delete Alquiler_Cancha where Id_Alquiler=@id
+
+go
+
+-- listado
+
+create proc listaalqui 
+as 
+select * from Alquiler_Cancha
+
+-- obtner un registro 
+go 
+create proc datoalqui  @id int 
+as
+select * from Alquiler_Cancha where Id_Alquiler = @id
+go 
+
+create proc mostrarocupadas @fecha date
+as
+select c.Nombre , p.Fecha,p.HoraInicio ,HoraFinal from cancha c , partido p
+where c.NumeroCancha=p.Id_Cancha
+and p.HoraInicio > '00:00:00'
+and p.Fecha= @fecha
+go
+ 
+ create proc verdias  @name varchar(30)
+ as
+ select * from Horario where dia=@name
+ go 
+  create proc mostrarocupadasalq @fecha datetime
+ as
+ select c.Nombre , ac.fecha, ac.Horainicio , ac.horafin from  cancha c , Alquiler_Cancha ac
+where c.NumeroCancha = ac.ID_Cancha
+and ac.fecha=@fecha
+
+ 
+go
+
+ create proc canchastorneouso  @fecha date , @id int 
+as
+select c.Nombre , case when p.Fecha is null then @fecha else p.Fecha end as Fecha,case when p.HoraInicio  is null then '00:00:00' else p.HoraInicio end as HoraInicio, case when p.HoraFinal is null then '00:00:00' else p.HoraFinal end as HoraFinal   from cancha c left join  partido p on c.NumeroCancha=p.Id_Cancha
+and p.Fecha =@fecha
+where c.NumeroCancha=@id
+ 
+ go
+ create proc alquileruso  @fecha datetime , @id int 
+ as
+   select c.Nombre , case when ac.fecha is null then @fecha else ac.fecha end as Fecha,case when ac.HoraInicio  is null then '00:00:00' else ac.HoraInicio end as HoraInicio, case when ac.horafin is null then '00:00:00' else ac.horafin end as HoraFinal from  cancha c left join Alquiler_Cancha ac  on c.NumeroCancha = ac.ID_Cancha
+and ac.fecha=@fecha
+where c.NumeroCancha=@id
+
+ go
+
+-- usuarios 
+create proc insertuser   @dpi bigint,@name varchar(100),@app varchar(100),@dir varchar(200),@tel int ,@corr varchar(100),@pus varchar(50),@us varchar(50),@cl varchar(50)
+as
+INSERT INTO [dbo].[Usuario]
+           ([DPI]
+           ,[Nombres]
+           ,[Apellidos]
+           ,[Direccion]
+           ,[Telefono]
+           ,[Correo]
+           ,[Puesto]
+		   ,[USUARIO]
+		   ,[CLAVE])
+     VALUES
+           ( @dpi ,@name ,@app ,@dir,@tel,@corr,@pus,@us ,@cl )
+GO
+select * from USUARIO
+
+create proc updtus  @id int ,@dpi bigint,@name varchar(100),@app varchar(100),@dir varchar(200),@tel int ,@corr varchar(100),@pus varchar(50),@us varchar(50),@cl varchar(50)
+as
+UPDATE [dbo].[Usuario]
+   SET [DPI] =  @dpi
+      ,[Nombres] =  @name
+      ,[Apellidos] = @app
+      ,[Direccion] =  @dir
+      ,[Telefono] =  @tel
+      ,[Correo] =  @corr
+      ,[Puesto] =  @pus
+      ,[USUARIO] =  @us
+      ,[CLAVE] =  @cl
+ WHERE  ID_Usuario =  @id
+GO
+
+create proc verusers 
+as 
+select * from USUARIO
+go
+
+create proc veruser @id int 
+as 
+select * from Usuario
+where ID_Usuario=@id
+go 
+create proc dtluser @id int 
+as
+delete Usuario
+where ID_Usuario = @id
 
 
+go 
+
+-- ver arbitros 
+go
+create proc arbitroocupado @date date, @in time , @fin time 
+as
+select ar.Nombres +' ' + ar.Apellidos as Nombres  ,case when PR.Fecha is null then @date else PR.Fecha end as Fecha, case when pr.HoraInicio is null then '00:00:00' else pr.HoraInicio end as HoraInicio , case when pr.HoraFinal is null then '00:00:00' else pr.HoraFinal end as HoraFinal   from arbitro ar left join  arbitro_partido arp on ar.DPI= arp.DPI_Arbitro left join partido pr on arp.Id_Juego = pr.Id_Juego 
+and pr.Fecha = @date
+and pr.Horainicio = @in
+and pr.HoraFinal  = @fin
+go
+create proc arbitroocupadoal @date date , @in datetime , @fin datetime 
+as
+select ar.Nombres +' ' + ar.Apellidos as Nombres ,PR.fecha,case when pr.HoraInicio is null then '00:00:00'  end as HoraInicio, case when pr.horafin is null then '00:00:00' end as HoraFin  from arbitro ar left join  arbitraje arp on ar.DPI=arp.arbitro left join Alquiler_Cancha pr on  arp.alquiler = pr.Id_Alquiler 
+and pr.fecha=@date
+and pr.Horainicio =@in
+and pr.horafin = @fin
+
+-- añadria arbitros 
+go
+create proc arbitroalq @arb bigint , @alq int , @time int , @pg float
+as
+
+INSERT INTO [dbo].[arbitraje]
+           ([arbitro]
+           ,[alquiler]
+           ,[Tiempo]
+           ,[pago_por_hora])
+     VALUES
+           ( @arb, @alq, @time, @pg)
+GO
+create proc verar @id int
+as
+select * from arbitraje where alquiler=@id
+
+go 
+create proc getar @id int 
+as 
+select * from arbitraje where id_arbitraje= @id
+go
+create proc dtlar @id int 
+as 
+delete arbitraje where id_arbitraje=@id
+go
+
+create proc updar @id int , @arb bigint , @alq int , @time int , @pg float 
+as
+UPDATE [dbo].[arbitraje]
+   SET [arbitro] = @arb
+      ,[alquiler] =  @alq
+      ,[Tiempo] =  @time
+      ,[pago_por_hora] =  @pg
+ WHERE id_arbitraje=@id
+GO
+
+-- acciones
+
+create proc acciones @id int , @ac varchar(50), @fecha datetime
+as
+ 
+INSERT INTO [dbo].[accion_usuario]
+           ([Usuario]
+           ,[Accion]
+           ,[Fecha])
+     VALUES
+           ( @id,@ac,@fecha)
+GO
+--Horarios
+ create proc [dbo].[verdias]  @name varchar(30)
+ as
+ select * from Horario where dia=@name
+ go
+ create proc verh 
+ as 
+ select * from Horario
+ go
+ Create proc updhora   @dia  varchar(30),@ap datetime , @cr datetime
+ as
+ update Horario set Apertura=@ap, Cierre= @cr where Dia=@dia
+
+ 
+
+
+go
+--reportes
+--bitacora
+
+create proc bitacora  @user varchar(50) , @in datetime , @fin datetime
+as
+select u.Nombres + ' ' + u.Apellidos as nombres , ac.Accion , ac.Fecha from accion_usuario ac , Usuario u
+where ac.Usuario=u.ID_Usuario
+and u.USUARIO = @user
+and ac.Fecha between @in and @fin
+ go
+ create proc bitacoradate    @in date , @fin date
+as
+select u.Nombres + ' ' + u.Apellidos as nombres , ac.Accion , ac.Fecha from accion_usuario ac , Usuario u
+where ac.Usuario=u.ID_Usuario
+and ac.Fecha between @in and @fin
+
+go
+ -- Ingresos por arbitros 
+  Create proc ganacias_alquiler @in date , @fin date
+ as
+  select (select ars.Nombres+' ' +ars.Apellidos  from arbitro ars where ars.DPI=arb.arbitro) as Nombres ,al.fecha, case when (select sum(rr.pago_por_hora*rr.Tiempo) from arbitraje rr join Alquiler_Cancha ac on rr.alquiler=ac.Id_Alquiler where rr.arbitro= arb.arbitro and ac.fecha=al.fecha)is null
+then 0 else (select sum(rr.pago_por_hora*rr.Tiempo) from arbitraje rr join Alquiler_Cancha ac on rr.alquiler=ac.Id_Alquiler where rr.arbitro= arb.arbitro and ac.fecha=al.fecha)
+end as Ingesos_Arbitraje
+ 
+ from arbitro ar left join arbitraje arb on ar.DPI=arb.arbitro left join Alquiler_Cancha al on arb.alquiler=al.Id_Alquiler
+ where al.fecha between @in and @fin
+ group by arb.arbitro,al.fecha
+ go
+
+ -- ingresos de alquiler
+  
+
+
+  create proc  ganaciaalqui @in date , @fn date 
+  as
+ select c.Nombre ,ac.fecha,sum(ac.precio_alquiler) as Ganancias from cancha c  left join Alquiler_Cancha ac on c.NumeroCancha=ac.ID_Cancha
+ where fecha between  @in and  @fn 
+ group by ac.ID_Cancha,ac.fecha,c.Nombre
+
+ 
+ go
+  create proc [dbo].[obtenerJugadoresDelEquipo] @Id_Torneo int, @Id_Equipo int
+as
+	SELECT posicion_jugador.Id_Torneo, torneo.Nombre, posicion_jugador.Id_Equipo, equipo.Nombre, posicion_jugador.DPI_Jugador, jugador.Nombres, jugador.Apellidos, posicion_jugador.Posicion, posicion_jugador.NumeroCamisola
+	FROM posicion_jugador
+	INNER JOIN jugador on jugador.DPI_Jugador = posicion_jugador.DPI_Jugador
+	INNER JOIN torneo on torneo.Id_Torneo = posicion_jugador.Id_Torneo
+	INNER JOIN equipo on equipo.Id_Equipo = posicion_jugador.Id_Equipo
+	WHERE posicion_jugador.Id_Torneo = @Id_Torneo
+	and posicion_jugador.Id_Equipo = @Id_Equipo;
+
+CREATE PROCEDURE SP_GET_ARBITROS_GIT
+AS BEGIN
+	SELECT * FROM arbitro;
+END
+GO
