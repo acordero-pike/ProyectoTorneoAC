@@ -49,3 +49,5 @@ C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\A
 C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\AdminitracionDeTorneosP\obj\Debug\AdminitracionDeTorneosP.csproj.CoreCompileInputs.cache
 C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\AdminitracionDeTorneosP\obj\Debug\AdminitracionDeTorneosP.exe
 C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\AdminitracionDeTorneosP\obj\Debug\AdminitracionDeTorneosP.pdb
+C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\AdminitracionDeTorneosP\obj\Debug\AdminitracionDeTorneosP.csprojAssemblyReference.cache
+C:\Users\albin\Desktop\Trabajo\AdminitracionDeTorneosP\AdminitracionDeTorneosP\AdminitracionDeTorneosP\obj\Debug\AdminitracionDeTorneosP.View.reportecanchasgit.resources

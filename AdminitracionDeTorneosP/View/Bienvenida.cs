@@ -134,7 +134,7 @@ namespace AdminitracionDeTorneosP.View
         }
             private void button7_Click(object sender, EventArgs e)
             {
-                ReporteEquipo re = new ReporteEquipo();
+                reportecanchasgit re = new reportecanchasgit();
                 re.Show();
 
             }
@@ -144,5 +144,7 @@ namespace AdminitracionDeTorneosP.View
             ReporteEquipo re = new ReporteEquipo();
             re.Show();
         }
+
+       
     }
 }
