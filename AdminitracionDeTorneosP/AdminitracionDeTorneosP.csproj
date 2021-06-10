@@ -70,6 +70,7 @@
     <Compile Include="Database\reportesLourdes.cs" />
     <Compile Include="Database\REPORTE_EQUIPO_LOCAL_DB.cs" />
     <Compile Include="Database\Reporte_EstadisticasDelEquipoDB.cs" />
+    <Compile Include="Database\Reporte_Jugadores_BD.cs" />
     <Compile Include="Database\REPORTE_PORTEO_MENOS_VENCIDO_DB.cs" />
     <Compile Include="Database\Reporte_Tabla_VisitanteDB.cs" />
     <Compile Include="Database\Reporte_UtilidadesDB.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Model\reporteJuegosAfectadosPorCancha.cs" />
     <Compile Include="Model\reportePlanillaArbitro.cs" />
     <Compile Include="Model\reporteUsoCanchasModel.cs" />
+    <Compile Include="Model\Reporte_Jugadores.cs" />
     <Compile Include="Model\REPORTE_LOCAL.cs" />
     <Compile Include="Model\REPORTE_PORTERO_MENOS_VENCIDO.cs" />
     <Compile Include="Model\Reporte_Utilidades.cs" />
@@ -319,6 +321,12 @@
     <Compile Include="View\reportePlanillaArbitro.Designer.cs">
       <DependentUpon>reportePlanillaArbitro.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Reporte_Jugadores1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Reporte_Jugadores1.Designer.cs">
+      <DependentUpon>Reporte_Jugadores1.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Reporte_punteo_general.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +498,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\reportePlanillaArbitro.resx">
       <DependentUpon>reportePlanillaArbitro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Reporte_Jugadores1.resx">
+      <DependentUpon>Reporte_Jugadores1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Reporte_punteo_general.resx">
       <DependentUpon>Reporte_punteo_general.cs</DependentUpon>
