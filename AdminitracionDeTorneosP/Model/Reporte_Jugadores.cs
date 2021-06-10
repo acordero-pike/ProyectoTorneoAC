@@ -8,7 +8,7 @@ namespace AdminitracionDeTorneosP.Model
 {
    public class Reporte_Jugadores
     {
-        public int Identificacion
+        public long Identificacion
         {
             get;
             set;
@@ -60,12 +60,7 @@ namespace AdminitracionDeTorneosP.Model
             set;
 
         }
-        public bool Menor_edad
-        {
-            get;
-            set;
-
-        }
+        
 
     }
 }

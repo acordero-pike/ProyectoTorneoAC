@@ -145,6 +145,10 @@ namespace AdminitracionDeTorneosP.View
             re.Show();
         }
 
-       
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Reporte_Jugadores1 rj = new Reporte_Jugadores1();
+            rj.Show();
+        }
     }
 }

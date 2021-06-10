@@ -12,7 +12,7 @@ namespace AdminitracionDeTorneosP.Database
 {
     class Reporte_Jugadores_BD
     {
-        private string connectionString = "Server=DESKTOP-Q5D2767\\SQLEXPRESS;Database=PROYECTO_TORNEOS1;User Id=Facturacion;Password=Facturacion;";
+        private string connectionString = "Server=DESKTOP-IFKEU1D\\SQLEXPRESS;Database=PROYECTO_TORNEOS;User Id=sa;Password=albin123;";
 
 
 
@@ -31,7 +31,7 @@ namespace AdminitracionDeTorneosP.Database
                     while (reader.Read())
                     {
                         Reporte_Jugadores ContenidoHorario = new Reporte_Jugadores();
-                        ContenidoHorario.Identificacion = reader.GetInt32(0);
+                        ContenidoHorario.Identificacion = reader.GetInt64(0);
                         ContenidoHorario.Nombres = reader.GetString(1);
                         ContenidoHorario.Apellidos = reader.GetString(2);
                         ContenidoHorario.Fecha_Nac = reader.GetDateTime(3);
@@ -39,7 +39,7 @@ namespace AdminitracionDeTorneosP.Database
                         ContenidoHorario.Nacionalidad = reader.GetString(5);
                         ContenidoHorario.Correo = reader.GetString(6);
                         ContenidoHorario.Telefono = reader.GetString(7);
-                        ContenidoHorario.Menor_edad = reader.GetBoolean(8);
+                     
 
 
 

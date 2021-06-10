@@ -20,7 +20,7 @@ namespace AdminitracionDeTorneosP
  
             Application.Run(new Reporte_Jugadores1());
  
-            Application.Run(new Bienvenida());
+            Application.Run(new LogIn());
  
         }
     }

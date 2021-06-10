@@ -48,6 +48,7 @@ namespace AdminitracionDeTorneosP.View
             this.reporteArbitrosGit = new System.Windows.Forms.Button();
             this.ReporteEquipo = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button25
@@ -347,7 +348,7 @@ namespace AdminitracionDeTorneosP.View
             this.reporteArbitrosGit.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reporteArbitrosGit.ForeColor = System.Drawing.Color.White;
             this.reporteArbitrosGit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.reporteArbitrosGit.Location = new System.Drawing.Point(30, 408);
+            this.reporteArbitrosGit.Location = new System.Drawing.Point(30, 407);
             this.reporteArbitrosGit.Margin = new System.Windows.Forms.Padding(2);
             this.reporteArbitrosGit.Name = "reporteArbitrosGit";
             this.reporteArbitrosGit.Size = new System.Drawing.Size(152, 55);
@@ -361,7 +362,7 @@ namespace AdminitracionDeTorneosP.View
             this.ReporteEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
             this.ReporteEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReporteEquipo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ReporteEquipo.Location = new System.Drawing.Point(421, 399);
+            this.ReporteEquipo.Location = new System.Drawing.Point(422, 399);
             this.ReporteEquipo.Name = "ReporteEquipo";
             this.ReporteEquipo.Size = new System.Drawing.Size(151, 70);
             this.ReporteEquipo.TabIndex = 44;
@@ -374,13 +375,31 @@ namespace AdminitracionDeTorneosP.View
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button7.Location = new System.Drawing.Point(220, 408);
+            this.button7.Location = new System.Drawing.Point(219, 399);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(161, 55);
+            this.button7.Size = new System.Drawing.Size(162, 64);
             this.button7.TabIndex = 45;
             this.button7.Text = "Reporte Cancha Git";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(53)))), ((int)(((byte)(102)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button8.Location = new System.Drawing.Point(594, 404);
+            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(152, 55);
+            this.button8.TabIndex = 46;
+            this.button8.Text = "Reporte Jugadores ";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Bienvenida
             // 
@@ -388,6 +407,7 @@ namespace AdminitracionDeTorneosP.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(240)))), ((int)(((byte)(248)))));
             this.ClientSize = new System.Drawing.Size(782, 490);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.ReporteEquipo);
             this.Controls.Add(this.reporteArbitrosGit);
@@ -436,5 +456,6 @@ namespace AdminitracionDeTorneosP.View
         private System.Windows.Forms.Button reporteArbitrosGit;
         private System.Windows.Forms.Button ReporteEquipo;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }
